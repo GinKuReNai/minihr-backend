@@ -1,7 +1,9 @@
 version: "3.9"
 services:
   go:
-    build: .
+    build:
+      context: .
+      dockerfile: ./docker/go/Dockerfile
     ports:
       - "8080:8080"
     volumes:
@@ -18,4 +20,4 @@ services:
       MYSQL_DATABASE: minihr
       TZ: "Asia/Tokyo"
     volumes:
-      - ./db/conf.d/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./docker/mysql/conf.d/my.cnf:/etc/mysql/conf.d/my.cnf
