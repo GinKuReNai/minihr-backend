@@ -10,7 +10,7 @@ services:
       - .:/app
 
   mysql:
-    image: mysql:latest
+    image: mysql:8.4.2
     platform: linux/arm64/v8
     container_name: mysql
     ports:
@@ -18,6 +18,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: minihr
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
       TZ: "Asia/Tokyo"
     volumes:
       - ./docker/mysql/conf.d/my.cnf:/etc/mysql/conf.d/my.cnf
