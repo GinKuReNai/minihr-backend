@@ -1,0 +1,24 @@
+version: '3'
+
+tasks:
+  goose-create:
+    cmds:
+      - GOOSE_DRIVER=mysql GOOSE_DBSTRING="root:root@tcp(localhost:3306)/minihr" goose -dir internal/infrastructure/migrations create {{.CLI_ARGS}}
+
+  goose-up:
+    desc: Apply
+    cmds:
+      - GOOSE_DRIVER=mysql GOOSE_DBSTRING="root:root@tcp(localhost:3306)/minihr" goose -dir internal/infrastructure/migrations up
+
+  goose-up-to:
+    cmds:
+      - GOOSE_DRIVER=mysql GOOSE_DBSTRING="root:root@tcp(localhost:3306)/minihr" goose -dir internal/infrastructure/migrations up-to {{.CLI_ARGS}}
+
+  goose-down:
+    desc: Drop
+    cmds:
+      - GOOSE_DRIVER=mysql GOOSE_DBSTRING="root:root@tcp(localhost:3306)/minihr" goose -dir internal/infrastructure/migrations down
+
+  goose-status:
+    cmds:
+      - GOOSE_DRIVER=mysql GOOSE_DBSTRING="root:root@tcp(localhost:3306)/minihr" goose -dir internal/infrastructure/migrations status
