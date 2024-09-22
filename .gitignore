@@ -26,3 +26,4 @@ docker/mysql/data
 post_cmd.txt
 pre_cmd.txt
 .DS_Store
+.env
