@@ -1,0 +1,30 @@
+post:
+  summary: Login a company
+  tags:
+    - Company's Authentication
+  operationId: postV1CompanyLogin
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - email
+            - password
+          properties:
+            email:
+              type: string
+              format: email
+              description: Company's email address
+            password:
+              type: string
+              format: password
+              minLength: 8
+              description: Company's password
+              example: "password"
+  responses:
+    "204":
+      description: Success for login of company account
+    "400":
+      description: Invalid

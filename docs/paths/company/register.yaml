@@ -1,0 +1,40 @@
+post:
+  summary: Register a new company
+  operationId: postV1CompanyRegister
+  tags:
+    - Company's Authentication
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - email
+            - password
+            - name
+            - address
+          properties:
+            email:
+              type: string
+              format: email
+              description: Company's email address
+            password:
+              type: string
+              format: password
+              minLength: 8
+              description: Company's password
+              example: "password"
+            name:
+              type: string
+              description: Company name
+              example: "GoTesting Inc."
+            address:
+              type: string
+              description: Company's address
+              example: "One Apple Park Way, Cupertino, California"
+  responses:
+    "201":
+      description: Success for registeration of company account
+    "400":
+      description: Invalid

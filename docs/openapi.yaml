@@ -1,0 +1,30 @@
+openapi: "3.0.0"
+
+info:
+  title: "minihr backend API"
+  description: "This is the api for a simple job posting service.\n Companies can post job openings, and job seekers can apply for those openings"
+  version: "1.0.0"
+
+servers:
+  - url: "http://localhost:8080/api/v1/"
+
+paths:
+  company/register:
+    $ref: "./paths/company/register.yaml"
+  company/login:
+    $ref: "./paths/company/login.yaml"
+  company/logout:
+    $ref: "./paths/company/logout.yaml"
+  user/register:
+    $ref: "./paths/user/register.yaml"
+  user/login:
+    $ref: "./paths/user/login.yaml"
+  user/logout:
+    $ref: "./paths/user/logout.yaml"
+
+components:
+  securitySchemes:
+    sessionAuth:
+      type: apiKey
+      in: cookie
+      name: SID

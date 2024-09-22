@@ -1,0 +1,42 @@
+post:
+  summary: Register a new user
+  operationId: postV1UserRegister
+  tags:
+    - User's Authentication
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - email
+            - password
+            - name
+            - phone
+            - occupation
+            - graduate_school
+          properties:
+            email:
+              type: string
+              format: email
+              description: ユーザーのメールアドレス
+            password:
+              type: string
+              format: password
+              minLength: 8
+              description: パスワード
+              example: "password"
+            name:
+              type: string
+              description: ユーザーの名前
+              example: "username"
+            address:
+              type: string
+              description: 住所
+              example: "One Apple Park Way, Cupertino, California"
+  responses:
+    "201":
+      description: Success for registeration of user account
+    "400":
+      description: Invalid

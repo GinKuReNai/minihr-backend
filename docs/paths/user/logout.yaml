@@ -1,0 +1,10 @@
+post:
+  summary: Logout a company
+  operationId: postV1UserLogout
+  tags:
+    - User's Authentication
+  responses:
+    "204":
+      description: Success for logout of user account
+    "400":
+      description: Invalid
