@@ -25,3 +25,10 @@ Run `task goose-up` to apply the migrations.
 ### Rollback
 
 Run `task goose-down` to rollback the migrations.
+
+## OpenAPI
+
+The OpenAPI definition file is located under the `docs` directory.
+
+After starting the local environment with Docker Compose,
+you can view the Swagger UI by accessing `localhost:9000`.
