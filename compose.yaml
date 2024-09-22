@@ -23,3 +23,13 @@ services:
       TZ: "Asia/Tokyo"
     volumes:
       - ./docker/mysql/conf.d/my.cnf:/etc/mysql/conf.d/my.cnf
+
+  swagger:
+    image: swaggerapi/swagger-ui:latest
+    environment:
+        PORT: "9000"
+        SWAGGER_JSON: "/docs/openapi.yaml"
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./docs:/docs
